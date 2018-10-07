@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - shop_db@localhost" uuid="dada24ad-d991-4123-b5e8-3aa68b9ab477">
+    <database-info product="MySQL" version="5.7.23" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.47 ( Revision: fe1903b1ecb4a96a917f7ed3190d80c049b1de29 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="shop_db"/>
+      <table id="2" parent="1" name="ORDERS"/>
+      <table id="3" parent="1" name="PROFILE"/>
+      <table id="4" parent="1" name="T_USER"/>
+      <column id="5" parent="2" name="ORDER_ID">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="6" parent="2" name="CREATED">
+        <data-type>datetime(6)</data-type>
+      </column>
+      <column id="7" parent="2" name="ITEM_ID">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="8" parent="2" name="QUANTITY">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="9" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <index id="10" parent="2" name="FK98j3l1f5336sg12ts51u6wy7f">
+        <columns>ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="11" parent="2" name="PRIMARY">
+        <columns>ORDER_ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="12" parent="2" name="FK98j3l1f5336sg12ts51u6wy7f">
+        <columns>ID</columns>
+        <ref-key>~.T_USER.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="13" parent="3" name="USER_ID">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="14" parent="3" name="ADDRESS">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="15" parent="3" name="TELEPHONE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="16" parent="3" name="PRIMARY">
+        <columns>USER_ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="17" parent="4" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="18" parent="4" name="EMAIL">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="19" parent="4" name="FIRST_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="20" parent="4" name="LAST_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="21" parent="4" name="PASSWORD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="22" parent="4" name="ROLE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="23" parent="4" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
