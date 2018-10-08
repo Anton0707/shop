@@ -23,20 +23,20 @@ public class Main {
         List<Orders> list = new ArrayList<>();
 
 
-        Profile profile = new Profile("1","1");
-        User user = new User("1","1","1","1",RoleEnum.USER, null, null);
-        Orders orders = new Orders(LocalDateTime.now(),2L, 2, null);
-        list.add(orders);
+//        Profile profile = new Profile("1","1");
+//        User user = new User("1","1","1","1",RoleEnum.USER, null, null);
+//        Orders orders = new Orders(LocalDateTime.now(),2L, 2, null);
+//        list.add(orders);
+//
+//        user.setOrderList(list);
+//        orders.setUser(user);
+//
+//        user.setProfile(profile);
+//        profile.setUser(user);
+//
+//        userService.demoSave(user);
 
-        user.setOrderList(list);
-        orders.setUser(user);
-
-        user.setProfile(profile);
-        profile.setUser(user);
-
-        userService.demoSave(user);
-
-        user.setFirstName("2");
+        User user = new User("2","2","2","2",RoleEnum.USER, null, null);
         userService.demoUpdate(user, 1L);
     }
 }

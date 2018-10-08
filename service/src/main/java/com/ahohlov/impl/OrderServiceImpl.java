@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class OrderServiceImpl implements OrderService{
 
-    private static final Logger logger = LogManager.getLogger(HibernateUtil.class);
+    private static final Logger logger = LogManager.getLogger(OrderServiceImpl.class);
 
     private OrderDao orderDao = new OrderDaoImpl(Orders.class);
     private OrderDTOConverter orderDTOConverter = new OrderDTOConverter();
