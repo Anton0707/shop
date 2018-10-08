@@ -28,7 +28,24 @@ public class ProfileServiceImpl implements ProfileService{
 
     @Override
     public ProfileDTO update(ProfileDTO profileDTO) {
-        return null;
+
+        Session session = profileDao.getCurrentSession();
+        try{
+            Transaction transaction = session.getTransaction();
+            if(!transaction.isActive()){
+                session.beginTransaction();
+            }
+            Profile profile = profileConverter.toEntity(profileDTO);
+            profileDao.create(profile);
+            transaction.commit();
+            return profileDTOConverter.toDTO(profile);
+        }catch (Exception e){
+            if(session.getTransaction().isActive()){
+                session.getTransaction().rollback();
+            }
+            logger.error("Failed to update profile", e);
+        }
+        return profileDTO;
     }
 
     @Override
