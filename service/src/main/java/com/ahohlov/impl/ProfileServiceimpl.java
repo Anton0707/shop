@@ -1,13 +1,11 @@
 package com.ahohlov.impl;
 
 import com.ahohlov.ProfileService;
-import com.ahohlov.converter.impl.OrderDTOConverter;
 import com.ahohlov.converter.impl.ProfileConverter;
 import com.ahohlov.converter.impl.ProfileDTOConverter;
 import com.ahohlov.dao.ProfileDao;
 import com.ahohlov.dao.impl.ProfileDaoImpl;
 import com.ahohlov.dao.model.Profile;
-import com.ahohlov.dao.util.HibernateUtil;
 import com.ahohlov.dto.ProfileDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,7 +19,7 @@ import java.util.List;
  */
 public class ProfileServiceImpl implements ProfileService{
 
-    private static final Logger logger = LogManager.getLogger(HibernateUtil.class);
+    private static final Logger logger = LogManager.getLogger(ProfileServiceImpl.class);
 
     private ProfileDao profileDao = new ProfileDaoImpl(Profile.class);
     private ProfileDTOConverter profileDTOConverter = new ProfileDTOConverter();
