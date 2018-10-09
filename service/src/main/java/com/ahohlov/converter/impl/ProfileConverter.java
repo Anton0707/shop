@@ -22,8 +22,6 @@ public class ProfileConverter implements Converter<ProfileDTO,Profile>{
         profile.setTelephone(dto.getTelephone());
         profile.setUserId(dto.getUserId());
 
-
-
         return profile;
     }
 

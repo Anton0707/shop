@@ -14,6 +14,7 @@ public class OrderDTO {
     private LocalDateTime created;
     private int qauntity;
     private UserDTO userDTO;
+    private ItemDTO itemDTO;
 
     public LocalDateTime getCreated() {
         return created;
@@ -62,6 +63,14 @@ public class OrderDTO {
 
     public void setUserDTO(UserDTO userDTO) {
         this.userDTO = userDTO;
+    }
+
+    public ItemDTO getItemDTO() {
+        return itemDTO;
+    }
+
+    public void setItemDTO(ItemDTO itemDTO) {
+        this.itemDTO = itemDTO;
     }
 
     @Override

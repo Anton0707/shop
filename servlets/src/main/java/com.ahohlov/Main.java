@@ -36,7 +36,7 @@ public class Main {
 //
 //        userService.demoSave(user);
 
-        User user = new User("2","2","2","2",RoleEnum.USER, null, null);
-        userService.demoUpdate(user, 1L);
+//        User user = new User("2","2","2","2",RoleEnum.USER, null, null);
+//        userService.demoUpdate(user, 1L);
     }
 }

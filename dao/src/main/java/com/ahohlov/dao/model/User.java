@@ -32,6 +32,8 @@ public class User implements Serializable{
     private Profile profile;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Orders> orderList;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<News> newses;
 
     public User(){}
 
@@ -108,6 +110,14 @@ public class User implements Serializable{
 
     public void setRole(RoleEnum role) {
         this.role = role;
+    }
+
+    public List<News> getNewses() {
+        return newses;
+    }
+
+    public void setNewses(List<News> newses) {
+        this.newses = newses;
     }
 
     @Override

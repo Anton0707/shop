@@ -1,6 +1,7 @@
 package com.ahohlov.converter.impl;
 
 import com.ahohlov.converter.Converter;
+import com.ahohlov.dao.model.Item;
 import com.ahohlov.dao.model.Orders;
 import com.ahohlov.dao.model.User;
 import com.ahohlov.dto.OrderDTO;
@@ -19,6 +20,8 @@ public class OrderConverter implements Converter<OrderDTO,Orders>{
     public Orders toEntity(OrderDTO dto) {
         UserConverter userConverter = new UserConverter();
         User user = userConverter.toEntity(dto.getUserDTO());
+        ItemConverter itemConverter = new ItemConverter();
+        Item item = itemConverter.toEntity(dto.getItemDTO());
 
         Orders orders = new Orders();
         orders.setOrderId(dto.getOrderId());
@@ -27,6 +30,7 @@ public class OrderConverter implements Converter<OrderDTO,Orders>{
         orders.setQauntity(dto.getQauntity());
 
         orders.setUser(user);
+        orders.setItem(item);
 
         return orders;
     }

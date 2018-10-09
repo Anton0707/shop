@@ -21,6 +21,7 @@ public class UserDTO {
     private RoleEnum role;
     private ProfileDTO profileDTO;
     private List<OrderDTO> orderDTOList;
+    private List<NewsDTO> newsDTOList;
 
     public List<OrderDTO> getOrderDTOList() {
         return orderDTOList;
@@ -84,6 +85,14 @@ public class UserDTO {
 
     public void setRole(RoleEnum role) {
         this.role = role;
+    }
+
+    public List<NewsDTO> getNewsDTOList() {
+        return newsDTOList;
+    }
+
+    public void setNewsDTOList(List<NewsDTO> newsDTOList) {
+        this.newsDTOList = newsDTOList;
     }
 
     @Override

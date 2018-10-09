@@ -1,6 +1,11 @@
 package com.ahohlov.dao.model;
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -15,6 +20,12 @@ public class Orders implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ORDER_ID",updatable = false,nullable = false)
     private Long orderId;
+    @GenericGenerator(
+            name = "generator",
+            strategy = "foreign",
+            parameters = @org.hibernate.annotations.Parameter(name = "property", value = "item")
+    )
+    @GeneratedValue(generator = "generator")
     @Column(name = "ITEM_ID")
     private Long itemId;
     @Column(name = "CREATED")
@@ -25,6 +36,8 @@ public class Orders implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "orders")
+    private Item item;
 
     public Orders(){}
 
@@ -73,6 +86,14 @@ public class Orders implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     @Override

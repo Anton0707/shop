@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface UserDao extends GenericDao {
 
-
     User findUserByEmail(Connection connection, String email);
 
     List<User> findAll(Connection connection);

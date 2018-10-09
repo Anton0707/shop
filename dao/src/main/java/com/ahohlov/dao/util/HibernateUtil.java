@@ -1,9 +1,7 @@
 package com.ahohlov.dao.util;
 
 import com.ahohlov.config.ConfigurationManager;
-import com.ahohlov.dao.model.Orders;
-import com.ahohlov.dao.model.Profile;
-import com.ahohlov.dao.model.User;
+import com.ahohlov.dao.model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -45,7 +43,9 @@ public class HibernateUtil {
                 MetadataSources sources = new MetadataSources(registry).
                         addAnnotatedClass(User.class).
                         addAnnotatedClass(Profile.class).
-                        addAnnotatedClass(Orders.class);
+                        addAnnotatedClass(Orders.class).
+                        addAnnotatedClass(Item.class).
+                        addAnnotatedClass(News.class);
                 Metadata metadata = sources.getMetadataBuilder().build();
                 sessionFactory = metadata.getSessionFactoryBuilder().build();
                 logger.info("SessionFactory created.");

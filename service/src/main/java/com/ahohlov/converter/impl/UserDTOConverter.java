@@ -3,6 +3,7 @@ package com.ahohlov.converter.impl;
 import com.ahohlov.converter.DTOConverter;
 import com.ahohlov.dao.model.Orders;
 import com.ahohlov.dao.model.User;
+import com.ahohlov.dto.NewsDTO;
 import com.ahohlov.dto.OrderDTO;
 import com.ahohlov.dto.ProfileDTO;
 import com.ahohlov.dto.UserDTO;
@@ -21,7 +22,9 @@ public class UserDTOConverter implements DTOConverter<UserDTO,User>{
         ProfileDTOConverter profileDTOConverter = new ProfileDTOConverter();
         ProfileDTO profileDTO = profileDTOConverter.toDTO(user.getProfile());
         OrderDTOConverter orderDTOConverter = new OrderDTOConverter();
-        List<OrderDTO> list = orderDTOConverter.toDTOList(user.getOrderList());
+        List<OrderDTO> orderDTOs = orderDTOConverter.toDTOList(user.getOrderList());
+        NewsDTOConverter newsDTOConverter = new NewsDTOConverter();
+        List<NewsDTO> newsDTOs = newsDTOConverter.toDTOList(user.getNewses());
 
         userDTO.setId(user.getId());
         userDTO.setEmail(user.getEmail());
@@ -32,7 +35,8 @@ public class UserDTOConverter implements DTOConverter<UserDTO,User>{
 
         userDTO.setProfileDTO(profileDTO);
         profileDTO.setUserDTO(userDTO);
-        userDTO.setOrderDTOList(list);
+        userDTO.setOrderDTOList(orderDTOs);
+        userDTO.setNewsDTOList(newsDTOs);
 
         return userDTO;
     }

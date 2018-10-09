@@ -98,7 +98,7 @@
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
-  <component name="DataSourceManagerImpl" format="xml" hash="1964867493">
+  <component name="DataSourceManagerImpl" format="xml" hash="2325791203">
     <data-source source="LOCAL" name="MySQL - shop_db@localhost" uuid="dada24ad-d991-4123-b5e8-3aa68b9ab477">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -309,7 +309,6 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/shop" vcs="Git" />
   </component>
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - shop_db@localhost" uuid="dada24ad-d991-4123-b5e8-3aa68b9ab477">
