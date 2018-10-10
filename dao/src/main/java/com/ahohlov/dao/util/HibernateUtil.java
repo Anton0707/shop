@@ -45,7 +45,8 @@ public class HibernateUtil {
                         addAnnotatedClass(Profile.class).
                         addAnnotatedClass(Orders.class).
                         addAnnotatedClass(Item.class).
-                        addAnnotatedClass(News.class);
+                        addAnnotatedClass(News.class).
+                        addAnnotatedClass(Role.class);
                 Metadata metadata = sources.getMetadataBuilder().build();
                 sessionFactory = metadata.getSessionFactoryBuilder().build();
                 logger.info("SessionFactory created.");

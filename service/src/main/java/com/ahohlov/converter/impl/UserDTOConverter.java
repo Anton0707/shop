@@ -3,10 +3,7 @@ package com.ahohlov.converter.impl;
 import com.ahohlov.converter.DTOConverter;
 import com.ahohlov.dao.model.Orders;
 import com.ahohlov.dao.model.User;
-import com.ahohlov.dto.NewsDTO;
-import com.ahohlov.dto.OrderDTO;
-import com.ahohlov.dto.ProfileDTO;
-import com.ahohlov.dto.UserDTO;
+import com.ahohlov.dto.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,19 +22,24 @@ public class UserDTOConverter implements DTOConverter<UserDTO,User>{
         List<OrderDTO> orderDTOs = orderDTOConverter.toDTOList(user.getOrderList());
         NewsDTOConverter newsDTOConverter = new NewsDTOConverter();
         List<NewsDTO> newsDTOs = newsDTOConverter.toDTOList(user.getNewses());
+        RoleDTOConverter roleDTOConverter = new RoleDTOConverter();
+        RoleDTO roleDTO = roleDTOConverter.toDTO(user.getRole());
+
+
 
         userDTO.setId(user.getId());
         userDTO.setEmail(user.getEmail());
         userDTO.setFirstName(user.getFirstName());
         userDTO.setLastName(user.getLastName());
         userDTO.setPassword(user.getPassword());
-        userDTO.setRole(user.getRole());
+
 
         userDTO.setProfileDTO(profileDTO);
         profileDTO.setUserDTO(userDTO);
         userDTO.setOrderDTOList(orderDTOs);
         userDTO.setNewsDTOList(newsDTOs);
-
+        userDTO.setRoleDTO(roleDTO);
+        
         return userDTO;
     }
 

@@ -18,7 +18,7 @@ public class UserDTO {
     private String password;
     private String firstName;
     private String lastName;
-    private RoleEnum role;
+    private RoleDTO roleDTO;
     private ProfileDTO profileDTO;
     private List<OrderDTO> orderDTOList;
     private List<NewsDTO> newsDTOList;
@@ -79,12 +79,12 @@ public class UserDTO {
         this.password = password;
     }
 
-    public RoleEnum getRole() {
-        return role;
+    public RoleDTO getRoleDTO() {
+        return roleDTO;
     }
 
-    public void setRole(RoleEnum role) {
-        this.role = role;
+    public void setRoleDTO(RoleDTO roleDTO) {
+        this.roleDTO = roleDTO;
     }
 
     public List<NewsDTO> getNewsDTOList() {

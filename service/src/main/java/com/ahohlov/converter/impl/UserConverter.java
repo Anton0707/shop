@@ -1,10 +1,7 @@
 package com.ahohlov.converter.impl;
 
 import com.ahohlov.converter.Converter;
-import com.ahohlov.dao.model.News;
-import com.ahohlov.dao.model.Orders;
-import com.ahohlov.dao.model.Profile;
-import com.ahohlov.dao.model.User;
+import com.ahohlov.dao.model.*;
 import com.ahohlov.dto.ProfileDTO;
 import com.ahohlov.dto.UserDTO;
 
@@ -24,6 +21,8 @@ public class UserConverter implements Converter<UserDTO,User> {
         List<Orders> orders = orderConverter.toEntityList(userDTO.getOrderDTOList());
         NewsConverter newsConverter = new NewsConverter();
         List<News> newses = newsConverter.toEntityList(userDTO.getNewsDTOList());
+        RoleConverter roleConverter = new RoleConverter();
+        Role role = roleConverter.toEntity(userDTO.getRoleDTO());
 
 
         user.setId(userDTO.getId());
@@ -31,12 +30,13 @@ public class UserConverter implements Converter<UserDTO,User> {
         user.setPassword(userDTO.getPassword());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
-        user.setRole(userDTO.getRole());
+
 
         user.setProfile(profile);
         profile.setUser(user);
         user.setOrderList(orders);
         user.setNewses(newses);
+        user.setRole(role);
 
         return user;
     }

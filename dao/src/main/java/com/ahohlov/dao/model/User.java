@@ -24,9 +24,7 @@ public class User implements Serializable{
     private String lastName;
     @Column(name = "PASSWORD")
     private String password;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ROLE")
-    private RoleEnum role;
+
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private Profile profile;
@@ -34,18 +32,20 @@ public class User implements Serializable{
     private List<Orders> orderList;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<News> newses;
+    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private Role role;
 
     public User(){}
 
     public User(String email, String firstName, String lastName,
-                String password, RoleEnum role, List<Orders> orderList, Profile profile) {
+                String password, List<Orders> orderList, Profile profile) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.orderList = orderList;
         this.password = password;
         this.profile = profile;
-        this.role = role;
     }
 
     public String getEmail() {
@@ -104,11 +104,11 @@ public class User implements Serializable{
         this.profile = profile;
     }
 
-    public RoleEnum getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(RoleEnum role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
